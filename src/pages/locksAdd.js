@@ -7,7 +7,8 @@ export default class LocksAdd extends Component {
         name: '',
         address: '',
         specialty: '',
-        phone: ''
+        phone: '',
+        web: ''
     }
   
     handleChange = event => {
@@ -17,13 +18,14 @@ export default class LocksAdd extends Component {
     
     handleSubmit =  async (event) => {
       event.preventDefault();
-      const {name, address, specialty, phone} = this.state
-     await  axios.post('http://localhost:4000/api/locksmith/', {name, address, specialty, phone})
+      const {name, address, specialty, phone, web} = this.state
+     await  axios.post('http://localhost:4000/api/locksmith/', {name, address, specialty, phone, web})
       this.setState({
           name: "",
           address: "",
           specialty: '',
-          phone: ''
+          phone: '',
+          web: ''
       })
     }
     render() {
@@ -31,7 +33,7 @@ export default class LocksAdd extends Component {
             <div>
                 <div>
         
-        <div id="formCreate">
+        <div id="idSignupAndLogin">
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <label className="label">Name</label>
           <input
@@ -62,10 +64,17 @@ export default class LocksAdd extends Component {
             value={this.state.phone}
             onChange={(e) => this.handleChange(e)}
           />
+          <label className="label" >web</label>
+          <input
+            type="text"
+            name="web"
+            value={this.state.web}
+            onChange={(e) => this.handleChange(e)}
+          />
           <button type="submit">Save</button>
         </form>
         </div>
-
+          <p>Estos datos serán revisados.</p>
       </div>
             </div>
         )

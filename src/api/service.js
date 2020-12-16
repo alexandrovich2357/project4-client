@@ -17,11 +17,11 @@ class Service {
     }
   };
 
-  saveNewMovie = async (newMovie) => {
-    console.log("new thing is: ", newMovie);
+  saveNewMovie = async (newImage) => {
+    console.log("new thing is: ", newImage);
 
     try {
-      const res = await this.service.post("/movies/create", newMovie);
+      const res = await this.service.post("/images/create", newImage);
       return res.data;
     } catch (error) {
       // console.log(error);

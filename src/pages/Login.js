@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import { Link } from "react-router-dom";
+
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -22,17 +22,6 @@ class Login extends Component {
 
     return (
       <div id="idSignupAndLogin">
-        <h1>Login</h1>
-        <div className="signupLoginLinks">
-          <Link to='/login'>
-            <button className='activeButton'>Login</button>
-          </Link>
-          <br />
-          <Link to='/signup'>
-            <button>Sign Up</button>
-          </Link>
-        </div>
-
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input
@@ -42,7 +31,7 @@ class Login extends Component {
             onChange={this.handleChange}
           />
 
-          <label>Password:</label>
+          <label><p>Password:</p></label>
           <input
             type='password'
             name='password'
@@ -50,7 +39,7 @@ class Login extends Component {
             onChange={this.handleChange}
           />
 
-          <input type='submit' value='Login' />
+          <input className="button" type='submit' value='Login' />
         </form>
       </div>
     );
