@@ -230,7 +230,8 @@ font-size: 0.6rem;
   background-color: rgb(125, 120, 120);
   -webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.60);}
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.60);
+}
 
 .profesional:hover{
   background-color: #b3b0b0;
