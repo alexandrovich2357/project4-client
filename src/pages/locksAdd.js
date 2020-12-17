@@ -35,7 +35,7 @@ export default class LocksAdd extends Component {
         
         <div id="idSignupAndLogin">
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label className="label">Name</label>
+          <label className="label">Nombre</label>
           <input
             type="text"
             name="name"
@@ -43,35 +43,35 @@ export default class LocksAdd extends Component {
             onChange={(e) => this.handleChange(e)}
           />
 
-          <label className="label" >address</label>
+          <label className="label" >Dirección</label>
           <input
             type="text"
             name="address"
             value={this.state.address}
             onChange={(e) => this.handleChange(e)}
           />
-          <label className="label" >Specialty</label>
+          <label className="label" >Especialidad</label>
           <input
             type="text"
             name="specialty"
             value={this.state.specialty}
             onChange={(e) => this.handleChange(e)}
           />
-          <label className="label" >phone</label>
+          <label className="label" >Teléfono</label>
           <input
             type="text"
             name="phone"
             value={this.state.phone}
             onChange={(e) => this.handleChange(e)}
           />
-          <label className="label" >web</label>
+          <label className="label" >Web</label>
           <input
             type="text"
             name="web"
             value={this.state.web}
             onChange={(e) => this.handleChange(e)}
           />
-          <button type="submit">Save</button>
+          <button type="submit">Guardar</button>
         </form>
         </div>
           <p>Estos datos serán revisados.</p>

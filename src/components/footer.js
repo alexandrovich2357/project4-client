@@ -5,7 +5,7 @@ export default function footer() {
         <div className="footer">
             <div>
                 <p>Si quieres aparecer en nuestra web envíanos un E-mail y revisaremos tus datos.</p>
-                <a href="mailto:profstar@prostarcompany.com">profstar@profstarcompany.com</a>
+                <a href="mailto:stayprof@prostarcompany.com">stayprof@stayprof.com</a>
             </div>
         </div>
     )
