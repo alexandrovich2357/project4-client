@@ -26,7 +26,9 @@ body {
   color: #fff;
   /* margin: 0 20% 0 0; */
   font-size: 0.9rem;
-
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 4px;
 }
 
 .login {
@@ -35,9 +37,14 @@ color: #fff;
 font-size: 0.6rem;
 }
 
+.login h1{
+  margin-left: 870%;
+}
+
 .login:hover{
   background-color: black;
 }
+
 
 .signup{
   text-decoration: none;
@@ -177,9 +184,10 @@ font-size: 0.6rem;
 }
 
 .profileCard img{
-    width: 20vw;
-    height: 30vh;
+    width: 15vw;
+    height: 25vh;
     border-radius: 100% 100%;
+    border: 1px solid black;
 }
 
 
@@ -187,14 +195,28 @@ font-size: 0.6rem;
 
 .footer{
   background-color: rgb(125, 120, 120);
-  height: 20vh;
-  margin: 15% 0 0 0;
+  height: 10vh;
+  margin: 20% 0 0 0;
 }
 
+.footer p{
+  text-align: center;
+  color: #fff;
+}
+.footer a{
+  display: inline-block;
+  margin-left: 40%;
+  text-decoration: none;
+  color: #000
+}
+.footer a:hover{
+  color: #fff;
+}
 .profesionales{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  margin: 3% 0 0 0;
   padding: 2%;
  
 }
@@ -211,7 +233,7 @@ font-size: 0.6rem;
   box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.60);}
 
 .profesional:hover{
-  background-color: #3a3a3a;
+  background-color: #b3b0b0;
   color: white;
 }
 

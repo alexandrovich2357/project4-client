@@ -12,6 +12,7 @@ import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import image from './pages/AddMovie';
 import Footer from './components/footer'
+import cerrajeros from './pages/cerrajeros'
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
             <AnonRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/private' component={Private} />
             <PrivateRoute exact path="/image" component={image}/>
+            <Route exact path="/cerrajeros" component={cerrajeros}/>
           </Switch>
           <Footer/>
         </div>
