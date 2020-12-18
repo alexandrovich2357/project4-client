@@ -47,7 +47,7 @@ class AddMovie extends Component {
         imageUrl: ""
       });
 
-      // this.props.getMovies()
+     
     } catch (error) {
         console.log("Error while adding the movie: ", error);
     }
