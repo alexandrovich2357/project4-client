@@ -133,15 +133,23 @@ font-size: 0.6rem;
 
 
 .cerrajeros{
+  margin: 10px 0 0 0;
   width: 90%;
-  padding: 0;
+  padding: 2%;
   border: 1px solid #fff;
   color: #fff;
+  background-color: black;
+
+}
+
+.cerrajeros .nombre{
+  color: red;
 }
 
 .cerrajeros:hover{
-  background-color: rgb(244, 177, 177);
+  background-color: rgb(85, 83, 83);
   color: #000;
+  color: #fff;
 }
 .cerrajeros .web{
   text-decoration: none;

@@ -19,8 +19,7 @@ export default class LocksAdd extends Component {
     handleSubmit =  async (event) => {
       event.preventDefault();
       const {name, address, specialty, phone, web} = this.state
-     await  axios.post(`${process.env.REACT_APP_API_URI}/api/locksmith/`, {name, address, specialty, phone, web})
-     console.log('hola me intento enviar')
+     await  axios.post('http://localhost:4000/api/locksmith/', {name, address, specialty, phone, web})
       this.setState({
           name: "",
           address: "",
