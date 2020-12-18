@@ -35,7 +35,7 @@ export default class LocksAdd extends Component {
         
         <div id="idSignupAndLogin">
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label className="label">Nombre</label>
+          <label className="label">Name</label>
           <input
             type="text"
             name="name"
@@ -43,21 +43,21 @@ export default class LocksAdd extends Component {
             onChange={(e) => this.handleChange(e)}
           />
 
-          <label className="label" >Dirección</label>
+          <label className="label" >Address</label>
           <input
             type="text"
             name="address"
             value={this.state.address}
             onChange={(e) => this.handleChange(e)}
           />
-          <label className="label" >Especialidad</label>
+          <label className="label" >Specialty</label>
           <input
             type="text"
             name="specialty"
             value={this.state.specialty}
             onChange={(e) => this.handleChange(e)}
           />
-          <label className="label" >Teléfono</label>
+          <label className="label" >Phone</label>
           <input
             type="text"
             name="phone"
