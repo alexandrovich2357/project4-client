@@ -22,7 +22,6 @@ export default class cerrajeros extends Component {
                 <div className="tarjetas">
           {this.state.lockmasters.map(element => 
             <div className="tarjeta">
-              
               <div className="cerrajeros">
                 <p>{element.name}</p>
                 <img src={element.image} alt=""/>
