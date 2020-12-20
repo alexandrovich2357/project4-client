@@ -27,7 +27,7 @@ class cerrajeros extends Component {
     
       deleter = async (id) => {
         try{
-          await axios.delete(`http://localhost:4000/lock/locksmith/${id}`)
+          await axios.delete(`${process.env.REACT_APP_API_URI}/lock/locksmith/${id}`)
           console.log(id)
         this.getlockmasters()
         }
