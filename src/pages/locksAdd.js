@@ -32,7 +32,6 @@ import { withAuth } from "../lib/AuthProvider";
   
       try {
         const res = await service.handleUpload(uploadData);
-  
         console.log("response is", res);
   
         this.setState({ imageUrl: res.secure_url });
