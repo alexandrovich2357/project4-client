@@ -24,7 +24,17 @@ class Service {
       const res = await this.service.post("/images/create", newImage);
       return res.data;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+    }
+  };
+  saveNewImagePrue = async (newImage) => {
+    console.log("new thing is: ", newImage);
+
+    try {
+      const res = await this.service.post("/images/create", newImage);
+      return res.data;
+    } catch (error) {
+      // console.log(error);
     }
   };
 

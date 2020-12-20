@@ -27,7 +27,7 @@ class AddMovie extends Component {
       console.log("response is", res);
       this.setState({ imageUrl: res.secure_url });
       }catch(error){
-        console.log('error while uploading the file')
+        console.log('error while uploading the', error)
       }
       
  

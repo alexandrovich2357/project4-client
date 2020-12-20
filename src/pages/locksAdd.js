@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import service from "../api/service"
 import axios from 'axios'
-import { withAuth } from "../lib/AuthProvider";
+
 
  class LocksAdd extends Component {
 
@@ -25,19 +25,17 @@ import { withAuth } from "../lib/AuthProvider";
       console.log("the file to be uploaded is: ", e.target.files[0]);
   
       // creamos un nuevo objeto FormData
-      
-  
+    
       // imageUrl (este nombre tiene que ser igual que en el modelo, ya que usaremos req.body como argumento del método .create() cuando creemos una nueva movie en la ruta POST '/api/movies/create')
-      const uploadData = new FormData();
+        const uploadData = new FormData();
         uploadData.append("imageUrl", e.target.files[0]);
-  
-      try {
-        const res = await service.handleUpload(uploadData);
+        try{
+          const res = await service.handleUpload(uploadData);
         console.log("response is", res);
         this.setState({ imageUrl: res.secure_url });
-      } catch (error) {
-          console.log("Error while uploading the file: ", error);
-      }
+        }catch(error){
+          console.log('error while uploading the file')
+        }
     };
 
     // PRUEBA
@@ -46,11 +44,8 @@ import { withAuth } from "../lib/AuthProvider";
       event.preventDefault();
       try {
         const {name, address, specialty, phone, web, imageUrl} = this.state
-        await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
-         const res = await service.saveNewImage(this.state);
-         console.log('added', res);
-        
-      
+        const enviar = await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
+        console.log('enviado', enviar)
       this.setState({
           name: "",
           address: "",
@@ -107,7 +102,7 @@ import { withAuth } from "../lib/AuthProvider";
             onChange={(e) => this.handleChange(e)}
           />
           <label className="label">Foto</label>
-          <input type="file" className="upfile" style={{color: 'transparent'}} onChange={(e) => this.handleFileUpload(e)} />
+          <input type="file" className="upfile"  onChange={(e) => this.handleFileUpload(e)} />
           <button type="submit">Guardar</button>
         </form>
         </div>
@@ -118,4 +113,4 @@ import { withAuth } from "../lib/AuthProvider";
     }
 }
 
-export default withAuth(LocksAdd)
+export default LocksAdd
