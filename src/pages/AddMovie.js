@@ -18,22 +18,14 @@ class AddMovie extends Component {
     console.log("the file to be uploaded is: ", e.target.files[0]);
 
     // creamos un nuevo objeto FormData
-   
-
+  
     // imageUrl (este nombre tiene que ser igual que en el modelo, ya que usaremos req.body como argumento del método .create() cuando creemos una nueva movie en la ruta POST '/api/movies/create')
-   
-
-    try {
       const uploadData = new FormData();
       uploadData.append("imageUrl", e.target.files[0]);
       const res = await service.handleUpload(uploadData);
-
       console.log("response is", res);
-
       this.setState({ imageUrl: res.secure_url });
-    } catch (error) {
-      console.log("Error while uploading the file: ", error);
-    }
+ 
   };
 
   handleSubmit = async (e) => {
