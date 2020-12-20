@@ -21,7 +21,7 @@ import { withAuth } from "../lib/AuthProvider";
       event.preventDefault();
       try {
         const {name, address, specialty, phone, web} = this.state
-        await axios({method: 'post', url: `${process.env.REACT_APP_API_URI}/lock/locksmith`}, {name, address, specialty, phone, web});
+        await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web});
       
       this.setState({
           name: "",
