@@ -20,7 +20,7 @@ import { withAuth } from "../lib/AuthProvider";
     handleSubmit =  async (event) => {
       event.preventDefault();
       const {name, address, specialty, phone, web} = this.state
-      await  axios.post(`http://localhost:4000/lock/locksmith/`, {name, address, specialty, phone, web});
+      await  axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith/`, {name, address, specialty, phone, web});
       this.setState({
           name: "",
           address: "",
