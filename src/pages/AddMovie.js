@@ -30,7 +30,7 @@ class AddMovie extends Component {
 
       this.setState({ imageUrl: res.secure_url });
     } catch (error) {
-      // console.log("Error while uploading the file: ", error);
+      console.log("Error while uploading the file: ", error);
     }
   };
 
@@ -38,7 +38,7 @@ class AddMovie extends Component {
     e.preventDefault();
 
     try {
-      const res = await service.saveNewMovie(this.state);
+      const res = await service.saveNewImage(this.state);
       console.log("added", res);
 
       this.setState({

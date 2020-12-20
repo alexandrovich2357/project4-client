@@ -37,7 +37,10 @@ class Private extends Component {
         <br></br>
         <h1>Bienvenido, {this.props.user.username}</h1>
         <button onClick={logout}>Logout</button>
-        <p>¿Eres profesional? <p className="unete" onClick={this.showFormClick}>Únete.</p></p>
+        <p>
+        ¿Eres profesional? 
+        <p className="unete" onClick={this.showFormClick}>Únete.</p>
+        </p>
        { this.state.showForm? <LocksAdd/> : null}
       </div>
       </div>

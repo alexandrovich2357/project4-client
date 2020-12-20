@@ -3,7 +3,7 @@ import axios from "axios";
 class Service {
   constructor() {
     this.service = axios.create({
-      baseURL: `${process.env.REACT_APP_API_URI}`,
+      baseURL: `http://localhost:4000/fileup`,
       // withCredentials: true
     });
   }
@@ -17,7 +17,7 @@ class Service {
     }
   };
 
-  saveNewMovie = async (newImage) => {
+  saveNewImage = async (newImage) => {
     console.log("new thing is: ", newImage);
 
     try {

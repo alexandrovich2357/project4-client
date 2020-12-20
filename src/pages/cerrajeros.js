@@ -38,16 +38,16 @@ class cerrajeros extends Component {
             <div>
                 <div className="tarjetas">
           {this.state.lockmasters.map((element )=> 
-            <div className="tarjeta">
-              <div className="cerrajeros" key={element._id}>
+            <div className="tarjeta" key={element._id}>
+              
                 <p className="nombre">{element.name}</p>
-                <img src={element.image} alt=""/>
+                <img className="imagen" src={element.imageUrl} alt=""/>
                 <p>{element.specialty}</p>
                 <p>{element.address}</p>
                 <p>{element.phone}</p>
                 <p>{element.web}</p>
                 <button className="delete" onClick={() => this.deleter(element._id)}>Delete</button>
-              </div>
+              
             </div>
             
           )}

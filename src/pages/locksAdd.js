@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import service from "../api/service"
 import axios from 'axios'
 import { withAuth } from "../lib/AuthProvider";
 
@@ -9,26 +10,54 @@ import { withAuth } from "../lib/AuthProvider";
         address: '',
         specialty: '',
         phone: '',
-        web: ''
+        web: '',
+        imageUrl: ''
     }
   
     handleChange = event => {
       let { name, value } = event.target;
       this.setState({ [name]: value})
     }
+
+    // prueba
+
+    handleFileUpload = async (e) => {
+      console.log("the file to be uploaded is: ", e.target.files[0]);
+  
+      // creamos un nuevo objeto FormData
+      const uploadData = new FormData();
+  
+      // imageUrl (este nombre tiene que ser igual que en el modelo, ya que usaremos req.body como argumento del método .create() cuando creemos una nueva movie en la ruta POST '/api/movies/create')
+      uploadData.append("imageUrl", e.target.files[0]);
+  
+      try {
+        const res = await service.handleUpload(uploadData);
+  
+        console.log("response is", res);
+  
+        this.setState({ imageUrl: res.secure_url });
+      } catch (error) {
+          console.log("Error while uploading the file: ", error);
+      }
+    };
+
+    // PRUEBA
     
     handleSubmit =  async (event) => {
       event.preventDefault();
       try {
-        const {name, address, specialty, phone, web} = this.state
-        await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web});
+        const {name, address, specialty, phone, web, imageUrl} = this.state
+        await axios.post(`http://localhost:4000/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
+        const res = await service.saveNewImage(this.state);
+        console.log("added", res);
       
       this.setState({
           name: "",
           address: "",
           specialty: '',
           phone: '',
-          web: ''
+          web: '',
+          imageUrl: ''
       })
     }catch(error){
       console.log(error)
@@ -41,7 +70,7 @@ import { withAuth } from "../lib/AuthProvider";
         
         <div id="idSignupAndLogin">
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label className="label">Name</label>
+          <label className="label">Nombre</label>
           <input
             type="text"
             name="name"
@@ -49,21 +78,21 @@ import { withAuth } from "../lib/AuthProvider";
             onChange={(e) => this.handleChange(e)}
           />
 
-          <label className="label" >Address</label>
+          <label className="label" >Dirección</label>
           <input
             type="text"
             name="address"
             value={this.state.address}
             onChange={(e) => this.handleChange(e)}
           />
-          <label className="label" >Specialty</label>
+          <label className="label" >Especialidad</label>
           <input
             type="text"
             name="specialty"
             value={this.state.specialty}
             onChange={(e) => this.handleChange(e)}
           />
-          <label className="label" >Phone</label>
+          <label className="label" >Teléfono</label>
           <input
             type="text"
             name="phone"
@@ -77,6 +106,8 @@ import { withAuth } from "../lib/AuthProvider";
             value={this.state.web}
             onChange={(e) => this.handleChange(e)}
           />
+          <label className="label">Foto</label>
+          <input type="file" className="upfile" style={{color: 'transparent'}} onChange={(e) => this.handleFileUpload(e)} />
           <button type="submit">Guardar</button>
         </form>
         </div>
