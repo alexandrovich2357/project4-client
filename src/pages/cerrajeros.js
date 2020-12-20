@@ -16,6 +16,8 @@ class cerrajeros extends Component {
         console.log(res.data);
       };
 
+      // let petition = await axios({method: "get", url: `${process.env.REACT_APP_API_URI}/players`,});
+
       
     
       deleter = async (id) => {
