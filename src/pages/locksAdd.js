@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import service from "../api/service"
 import axios from 'axios'
+import { withAuth } from "../lib/AuthProvider";
+
 
 
  class LocksAdd extends Component {
@@ -113,4 +115,4 @@ import axios from 'axios'
     }
 }
 
-export default LocksAdd
+export default withAuth(LocksAdd);

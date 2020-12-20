@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import service from "../api/service"
+import { withAuth } from "../lib/AuthProvider";
+
 
 class AddMovie extends Component {
   state = {
@@ -81,4 +83,4 @@ class AddMovie extends Component {
   }
 }
 
-export default AddMovie;
+export default withAuth(AddMovie);
