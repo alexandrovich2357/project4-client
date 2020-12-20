@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import service from "../api/service"
-import { withAuth } from "../lib/AuthProvider";
 
 class AddMovie extends Component {
   state = {
@@ -21,10 +20,16 @@ class AddMovie extends Component {
   
     // imageUrl (este nombre tiene que ser igual que en el modelo, ya que usaremos req.body como argumento del método .create() cuando creemos una nueva movie en la ruta POST '/api/movies/create')
       const uploadData = new FormData();
+
       uploadData.append("imageUrl", e.target.files[0]);
-      const res = await service.handleUpload(uploadData);
+      try{
+        const res = await service.handleUpload(uploadData);
       console.log("response is", res);
       this.setState({ imageUrl: res.secure_url });
+      }catch(error){
+        console.log('error while uploading the file')
+      }
+      
  
   };
 
@@ -76,4 +81,4 @@ class AddMovie extends Component {
   }
 }
 
-export default withAuth(AddMovie);
+export default AddMovie;

@@ -33,7 +33,7 @@ import { withAuth } from "../lib/AuthProvider";
   
       try {
         const res = await service.handleUpload(uploadData);
-        // console.log("response is", res);
+        console.log("response is", res);
         this.setState({ imageUrl: res.secure_url });
       } catch (error) {
           console.log("Error while uploading the file: ", error);
@@ -47,8 +47,8 @@ import { withAuth } from "../lib/AuthProvider";
       try {
         const {name, address, specialty, phone, web, imageUrl} = this.state
         await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
-        
-         await service.saveNewImage(this.state);
+         const res = await service.saveNewImage(this.state);
+         console.log('added', res);
         
       
       this.setState({

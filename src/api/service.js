@@ -13,7 +13,7 @@ class Service {
       const res = await this.service.post("/upload", theFile);
       return res.data;
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
@@ -24,7 +24,7 @@ class Service {
       const res = await this.service.post("/images/create", newImage);
       return res.data;
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
