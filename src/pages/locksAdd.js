@@ -47,7 +47,7 @@ import { withAuth } from "../lib/AuthProvider";
       event.preventDefault();
       try {
         const {name, address, specialty, phone, web, imageUrl} = this.state
-        await axios.post(`http://localhost:4000/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
+        await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
         const res = await service.saveNewImage(this.state);
         console.log("added", res);
       
