@@ -19,8 +19,9 @@ import { withAuth } from "../lib/AuthProvider";
     
     handleSubmit =  async (event) => {
       event.preventDefault();
-      const {name, address, specialty, phone, web} = this.state
-      await  axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web});
+      try {
+        const {name, address, specialty, phone, web} = this.state
+        await  axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web});
       this.setState({
           name: "",
           address: "",
@@ -28,7 +29,10 @@ import { withAuth } from "../lib/AuthProvider";
           phone: '',
           web: ''
       })
+    }catch(error){
+      console.log(error)
     }
+  }
     render() {
         return (
             <div>
