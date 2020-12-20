@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { withAuth } from "../lib/AuthProvider";
 
-export default class LocksAdd extends Component {
+ class LocksAdd extends Component {
 
     state = {
         name: '',
@@ -80,3 +81,5 @@ export default class LocksAdd extends Component {
         )
     }
 }
+
+export default withAuth(LocksAdd)

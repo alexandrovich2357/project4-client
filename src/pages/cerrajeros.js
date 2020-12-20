@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class cerrajeros extends Component {
+class cerrajeros extends Component {
     state = {
         lockmasters: [],
       };
@@ -18,11 +18,11 @@ export default class cerrajeros extends Component {
 
       
     
-      deleter = async (id) => {
-        await axios.delete(process.env.REACT_APP_API_URI+'/locksmith/'+id)
-         console.log(id)
-        this.getlockmasters()
-    }
+    //   deleter = async (id) => {
+    //     await axios.delete(process.env.REACT_APP_API_URI+'/locksmith/'+id)
+    //      console.log(id)
+    //     this.getlockmasters()
+    // }
 
     render() {
         return (
@@ -48,3 +48,5 @@ export default class cerrajeros extends Component {
         )
     }
 }
+
+export default cerrajeros
