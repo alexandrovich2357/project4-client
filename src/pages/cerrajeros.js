@@ -11,9 +11,14 @@ class cerrajeros extends Component {
       }
     
       getlockmasters = async () => {
-        const res = await axios.get(`${process.env.REACT_APP_API_URI}/lock/locksmith`);
+        try{
+          const res = await axios.get(`${process.env.REACT_APP_API_URI}/lock/locksmith`);
         this.setState({ lockmasters: res.data });
-        console.log(res.data);
+        console.log(res.data);}
+        catch(error) {
+          console.log(error)
+        }
+        
       };
 
       // let petition = await axios({method: "get", url: `${process.env.REACT_APP_API_URI}/players`,});
