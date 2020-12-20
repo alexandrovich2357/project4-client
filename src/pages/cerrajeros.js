@@ -11,18 +11,25 @@ class cerrajeros extends Component {
       }
     
       getlockmasters = async () => {
-        const res = await axios.get(`${process.env.REACT_APP_API_URI}/locksmith`);
+        const res = await axios.get(`http://localhost:4000/lock/locksmith`);
         this.setState({ lockmasters: res.data });
         console.log(res.data);
       };
 
       
     
-    //   deleter = async (id) => {
-    //     await axios.delete(process.env.REACT_APP_API_URI+'/locksmith/'+id)
-    //      console.log(id)
-    //     this.getlockmasters()
-    // }
+      deleter = async (id) => {
+        try{
+          await axios.delete('http://localhost:4000/lock/locksmith/'+id)
+          console.log(id)
+        this.getlockmasters()
+        }
+        catch(error) {
+          console.log(error)
+        }
+        
+         
+    }
 
     render() {
         return (
