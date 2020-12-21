@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import service from "../api/service"
 import { withAuth } from "../lib/AuthProvider";
 
-
 class AddMovie extends Component {
   state = {
     title: "",
@@ -26,7 +25,7 @@ class AddMovie extends Component {
       uploadData.append("imageUrl", e.target.files[0]);
       try{
         const res = await service.handleUpload(uploadData);
-      console.log("response is", res);
+          console.log("response is", res);
       this.setState({ imageUrl: res.secure_url });
       }catch(error){
         console.log('error while uploading the', error)
@@ -37,10 +36,9 @@ class AddMovie extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const res = await service.saveNewImage(this.state);
-      console.log("added", res);
+      await service.saveNewImage(this.state);
+       
 
       this.setState({
         title: "",

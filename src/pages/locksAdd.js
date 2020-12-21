@@ -25,10 +25,6 @@ import { withAuth } from "../lib/AuthProvider";
 
     handleFileUpload = async (e) => {
       console.log("the file to be uploaded is: ", e.target.files[0]);
-  
-      // creamos un nuevo objeto FormData
-    
-      // imageUrl (este nombre tiene que ser igual que en el modelo, ya que usaremos req.body como argumento del método .create() cuando creemos una nueva movie en la ruta POST '/api/movies/create')
         const uploadData = new FormData();
         uploadData.append("imageUrl", e.target.files[0]);
         try{
@@ -46,7 +42,7 @@ import { withAuth } from "../lib/AuthProvider";
       event.preventDefault();
       try {
         const {name, address, specialty, phone, web, imageUrl} = this.state
-        const enviar = await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
+        const enviar = await axios.post(`http://localhost:4000/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
         console.log('enviado', enviar)
       this.setState({
           name: "",
