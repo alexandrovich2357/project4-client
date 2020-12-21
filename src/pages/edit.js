@@ -17,7 +17,7 @@ class Edit extends Component {
 
     async componentDidMount(){
         try {
-        const res = await axios.get(`http://localhost:4000/lock/locksmith/${this.props.match.params.id}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URI}/lock/locksmith/${this.props.match.params.id}`);
         console.log(res.data)
         this.setState({
             name: res.data.name,
@@ -37,7 +37,7 @@ class Edit extends Component {
 
     update =  async (event) => {
        try{ event.preventDefault();
-        await axios.put(`http://localhost:4000/lock/locksmith/${this.state._id}`, {name: this.state.name, address: this.state.address, specialty: this.state.specialty, phone: this.state.phone, web: this.state.web})
+        await axios.put(`${process.env.REACT_APP_API_URI}/lock/locksmith/${this.state._id}`, {name: this.state.name, address: this.state.address, specialty: this.state.specialty, phone: this.state.phone, web: this.state.web})
         window.location.href="/";}catch(error){
             console.log('error')
         }
