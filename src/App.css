@@ -137,6 +137,7 @@ font-size: 0.6rem;
 
 .tarjetas .imagen{
   width: 12vw;
+  height: 10vh;
 }
 
 .tarjetas .nombre{
