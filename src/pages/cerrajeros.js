@@ -12,7 +12,7 @@ class cerrajeros extends Component {
     
       getlockmasters = async () => {
         try{
-          const res = await axios.get(`http://localhost:4000/lock/locksmith`);
+          const res = await axios.get(`${process.env.REACT_APP_API_URI}/lock/locksmith`);
         this.setState({ lockmasters: res.data });
         console.log(res.data);}
         catch(error) {
