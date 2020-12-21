@@ -14,6 +14,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import image from './pages/AddMovie';
 import Footer from './components/footer'
 import Cerrajeros from './pages/cerrajeros'
+import edit from './pages/edit'
 
 class App extends Component {
   render() {
@@ -23,12 +24,12 @@ class App extends Component {
           <Navbar />
           
           <Switch>
-
             <Route exact path="/" component={Home}/>
             <AnonRoute exact path='/signup' component={Signup} />
             <AnonRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/private' component={Private} />
             <PrivateRoute exact path="/image" component={image}/>
+            <PrivateRoute exact path='/edit/:id' component={edit}/>
             <Route exact path="/cerrajeros" component={Cerrajeros}/>
           </Switch>
           <Footer/>

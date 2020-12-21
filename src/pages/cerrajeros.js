@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 
 class cerrajeros extends Component {
@@ -13,8 +14,9 @@ class cerrajeros extends Component {
       getlockmasters = async () => {
         try{
           const res = await axios.get(`${process.env.REACT_APP_API_URI}/lock/locksmith`);
-        this.setState({ lockmasters: res.data });
-        console.log(res.data);}
+          console.log(res.data)
+          this.setState({ lockmasters: res.data });
+        ;}
         catch(error) {
           console.log(error)
         }
@@ -27,7 +29,7 @@ class cerrajeros extends Component {
     
       deleter = async (id) => {
         try{
-          await axios.delete(`http://localhost:4000/lock/locksmith/${id}`)
+          await axios.delete(`${process.env.REACT_APP_API_URI}/lock/locksmith/${id}`)
           console.log(id)
         this.getlockmasters()
         }
@@ -52,6 +54,7 @@ class cerrajeros extends Component {
                 <p>{element.phone}</p>
                 <p>{element.web}</p>
                 <button className="delete" onClick={() => this.deleter(element._id)}>Delete</button>
+                <Link to={'/edit/' + element._id }><button className="edit">Edit</button></Link>
               
             </div>
             
