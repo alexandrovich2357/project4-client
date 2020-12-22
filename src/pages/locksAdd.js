@@ -14,6 +14,7 @@ import { withAuth } from "../lib/AuthProvider";
         phone: '',
         web: '',
         imageUrl: ''
+        
     }
   
     handleChange = event => {
@@ -28,7 +29,7 @@ import { withAuth } from "../lib/AuthProvider";
         const uploadData = new FormData();
         uploadData.append("imageUrl", e.target.files[0]);
         try{
-          const res = await service.handleUpload(uploadData);
+        const res = await service.handleUpload(uploadData);
         console.log("response is", res);
         this.setState({ imageUrl: res.secure_url });
         }catch(error){
@@ -42,7 +43,7 @@ import { withAuth } from "../lib/AuthProvider";
       event.preventDefault();
       try {
         const {name, address, specialty, phone, web, imageUrl} = this.state
-        await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
+        await axios.post(`http://localhost:4000/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
         // console.log('enviado', enviar)
       this.setState({
           name: "",

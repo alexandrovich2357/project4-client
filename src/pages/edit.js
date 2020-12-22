@@ -17,7 +17,7 @@ class Edit extends Component {
 
     async componentDidMount(){
         try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URI}/lock/locksmith/${this.props.match.params.id}`);
+        const res = await axios.get(`http://localhost:4000/lock/locksmith/${this.props.match.params.id}`);
         console.log(res.data)
         this.setState({
             name: res.data.name,
@@ -38,7 +38,7 @@ class Edit extends Component {
     update =  async (event) => {
        try{ event.preventDefault();
         await axios.put(`${process.env.REACT_APP_API_URI}/lock/locksmith/${this.state._id}`, {name: this.state.name, address: this.state.address, specialty: this.state.specialty, phone: this.state.phone, web: this.state.web})
-        window.location.href="/";}catch(error){
+        window.location.href="/cerrajeros";}catch(error){
             console.log('error')
         }
     }
@@ -49,15 +49,15 @@ class Edit extends Component {
         return (
             <div id="idSignupAndLogin">
                  <form onSubmit={this.update}>
-                 <label for="name">name</label>
+                 <label>name</label>
                  <input type="text" id="name" name="name" value={this.state.name} onChange={(e)=>this.handleChange(e)}/>
-                 <label for="addres">address</label>
+                 <label>address</label>
                  <input type="text" id="body" name="address" value={this.state.address} onChange={(e) => this.handleChange(e)} />
-                 <label for="specialty">specialty</label>
+                 <label>specialty</label>
                  <input type="text" id="specialty" name="specialty" value={this.state.specialty} onChange={(e) => this.handleChange(e)} />
-                 <label for="phone">phone</label>
+                 <label>phone</label>
                  <input type="text" id="body" name="phone" value={this.state.phone} onChange={(e) => this.handleChange(e)} />
-                 <label for="phone">web</label>
+                 <label>web</label>
                  <input type="text" id="body" name="web" value={this.state.web} onChange={(e) => this.handleChange(e)} />
                  <button type="submit" value="submit">Send</button>
                 </form>

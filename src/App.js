@@ -29,7 +29,7 @@ class App extends Component {
             <AnonRoute exact path='/login' component={Login} />
             <PrivateRoute exact path='/private' component={Private} />
             <PrivateRoute exact path="/image" component={image}/>
-            <PrivateRoute exact path='/edit/:id' component={edit}/>
+            <Route exact path='/edit/:id' component={edit}/>
             <Route exact path="/cerrajeros" component={Cerrajeros}/>
           </Switch>
           <Footer/>

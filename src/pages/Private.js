@@ -9,13 +9,13 @@ import axios from 'axios';
 class Private extends Component {
   state = {
     users: [],
-    showForm: false
+    showForm: false,
   }
 
   async componentDidMount()  {
 
     try{
-    const res = await axios.get(`${process.env.REACT_APP_API_URI}/api/users`)
+    const res = await axios.get(`http://localhost:4000/api/users`)
     console.log(res.data)
     this.setState({users: res.data})
     }catch(error){
@@ -43,9 +43,9 @@ class Private extends Component {
         <h1>Bienvenido, {this.props.user.username}</h1>
         <button onClick={logout}>Logout</button>
         <p>
-        ¿Eres profesional? 
+        ¿Eres profesional?
+        </p> 
         <p className="unete" onClick={this.showFormClick}>Únete.</p>
-        </p>
        { this.state.showForm? <LocksAdd/> : null}
       </div>
       </div>
