@@ -45,8 +45,6 @@ class AddMovie extends Component {
         description: "",
         imageUrl: ""
       });
-
-     
     } catch (error) {
         console.log("Error while adding the movie: ", error);
     }

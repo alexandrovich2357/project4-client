@@ -16,7 +16,7 @@ class cerrajeros extends Component {
     
       getlockmasters = async () => {
         try{
-          const res = await axios.get(`http://localhost:4000/lock/locksmith`);
+          const res = await axios.get(`${process.env.REACT_APP_API_URI}/lock/locksmith`);
           // console.log(res.data)
           this.setState({ lockmasters: res.data });
         ;}
@@ -32,7 +32,7 @@ class cerrajeros extends Component {
     
       deleter = async (id) => {
         try{
-          await axios.delete(`http://localhost:4000/lock/locksmith/${id}`)
+          await axios.delete(`${process.env.REACT_APP_API_URI}/lock/locksmith/${id}`)
           // console.log(id)
         this.getlockmasters()
         }
