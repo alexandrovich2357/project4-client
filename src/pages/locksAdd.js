@@ -42,8 +42,8 @@ import { withAuth } from "../lib/AuthProvider";
       event.preventDefault();
       try {
         const {name, address, specialty, phone, web, imageUrl} = this.state
-        await axios.post(`${process.env.REACT_APP_API_URI}/lock/locksmith`, {name, address, specialty, phone, web, imageUrl});
-        // console.log('enviado', enviar)
+        const enviar = await axios.post(process.env.REACT_APP_API_URI+'/lock/locksmith', {name, address, specialty, phone, web, imageUrl});
+        console.log('enviado', enviar)
       this.setState({
           name: "",
           address: "",
