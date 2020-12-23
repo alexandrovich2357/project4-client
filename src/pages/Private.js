@@ -15,8 +15,7 @@ class Private extends Component {
   async componentDidMount()  {
 
     try{
-    const res = await axios.get(`${process.env.REACT_APP_API_URI}/api/users`)
-    console.log(res.data)
+    const res = await axios.get(process.env.REACT_APP_API_URI+'/api/users')
     this.setState({users: res.data})
     }catch(error){
       console.log(error)
