@@ -47,8 +47,8 @@ class cerrajeros extends Component {
         return (
             <div>
                 <div className="tarjetas">
-          {this.state.lockmasters.map((element )=> 
-            <div className="tarjeta" key={element._id}>
+          {this.state.lockmasters.map((element)=> 
+            (<div className="tarjeta" key={element._id}>
               
                 <p className="nombre">{element.name}</p>
                 <img className="imagen" src={element.imageUrl} alt=""/>
@@ -60,7 +60,7 @@ class cerrajeros extends Component {
                 <button className="delete" onClick={() => this.deleter(element._id)}>Delete</button>
                 <Link to={'/edit/' + element._id }><button className="edit">Edit</button></Link>
               
-            </div>
+            </div>)
             
           )}
           

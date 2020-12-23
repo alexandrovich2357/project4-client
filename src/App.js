@@ -13,7 +13,7 @@ import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import image from './pages/AddMovie';
 import Footer from './components/footer'
-import Cerrajeros from './pages/cerrajeros'
+import Cerrajeros from './pages/Cerrajeros'
 import edit from './pages/edit'
 
 class App extends Component {
