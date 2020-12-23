@@ -30,7 +30,6 @@ import { withAuth } from "../lib/AuthProvider";
         uploadData.append("imageUrl", e.target.files[0]);
         try{
         const res = await service.handleUpload(uploadData);
-        console.log("response is", res);
         this.setState({ imageUrl: res.secure_url });
         }catch(error){
           console.log('error while uploading the file')
