@@ -19,14 +19,14 @@ class Service {
     }
   };
 
-  saveNewImage = async (newImage) => {
-    console.log("new thing is: ", newImage);
+  saveNewImage = async (aNewImage) => {
+    console.log("new thing is: ", aNewImage);
 
     try {
-      const res = await this.service.post("/images/create", newImage);
+      const res = await this.service.post("/images/create", aNewImage);
       return res.data;
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
   
